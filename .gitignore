@@ -1,0 +1,16 @@
+.ipynb_checkpoints*
+.idea
+.DS_Store
+logging.log
+p.sh
+*.pyc
+tmp
+test.py
+./deps/abupy/RomDataBu/df_kl.h5
+./deps/abupy/RomDataBu/*
+*.ipynb
+venv/Scripts/*
+.ipynb_checkpoints
+.ipynb_checkpoints/*
+data
+*__pycache__*
