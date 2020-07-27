@@ -60,7 +60,7 @@ def use(broker, debug=False, **kwargs):
 
     if broker.lower() in ["ths", "同花顺客户端"]:
         from .clienttrader import ClientTrader
-
+        print("api.py ths ClientTrader")
         return ClientTrader()
 
     raise NotImplementedError

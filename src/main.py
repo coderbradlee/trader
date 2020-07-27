@@ -1,19 +1,18 @@
 # coding: utf-8
-import ths
-import time
+import easyquant
+from easyquant import DefaultQuotationEngine, DefaultLogHandler, PushBaseEngine
+def startTHS():
+    broker = 'ths'
+    need_data = "ht.json"
+    quotation_engine = DefaultQuotationEngine
+    quotation_engine.PushInterval = 10
+    log_handler = DefaultLogHandler(name='macd', log_type="file", filepath="engine.log")
+
+    m = easyquant.MainEngine(broker, need_data, quotation_engines=[quotation_engine], log_handler=log_handler)
+    # m.is_watch_strategy = True  # 策略文件出现改动时,自动重载,不建议在生产环境下使用
+    m.load_strategy()
+    m.start()
+
 
 if __name__ == "__main__":
-    x = ths.Ths()
-    print("余额", x.balance())
-    x.buy("510050", 3.36, 100)
-    time.sleep(5)
-    x.sell("510050", 3.36, 100)
-    time.sleep(3)
-    # print("今日委托，包含已撤单", x.today_entrusts())
-    canCancel = x.cancel_entrusts()
-    print("可撤单", canCancel)
-    for c in canCancel:
-        print("撤单", c.get("合同编号"))
-        x.cancel_entrust(c.get("合同编号"))
-    # time.sleep(3)
-    # print("今日成交", x.today_trades())
+    startTHS()

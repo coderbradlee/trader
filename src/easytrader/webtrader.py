@@ -21,6 +21,7 @@ class WebTrader(metaclass=abc.ABCMeta):
     config_path = ""
 
     def __init__(self, debug=True):
+        print("webtrader init")
         self.__read_config()
         self.trade_prefix = self.config["prefix"]
         self.account_config = ""
@@ -49,6 +50,7 @@ class WebTrader(metaclass=abc.ABCMeta):
         :param portfolio_market: [雪球登录需要]交易市场，
             可选['cn', 'us', 'hk'] 默认 'cn'
         """
+        print("not here?")
         if config_file is not None:
             self.read_config(config_file)
         else:

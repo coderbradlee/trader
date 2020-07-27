@@ -468,7 +468,8 @@ class ClientTrader(IClientTrader):
                 return handle
             # pylint: disable=broad-except
             except Exception as ex:
-                logger.exception("error occurred when trying to get left menus")
+                logger.exception("error occurred when trying to get left menus",ex)
+                time.sleep(3)
             count = count - 1
 
     def _cancel_entrust_by_double_click(self, row):
