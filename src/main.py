@@ -1,7 +1,9 @@
 # coding: utf-8
 import easyquant
 from easyquant import DefaultQuotationEngine, DefaultLogHandler, PushBaseEngine
+import jqdatasdk
 def startTHS():
+    jqdatasdk.auth("user", "pass")
     broker = 'ths'
     need_data = "ht.json"
     quotation_engine = DefaultQuotationEngine
